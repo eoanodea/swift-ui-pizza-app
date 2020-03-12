@@ -11,10 +11,29 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Spacer()
-            Text("Welcome to Steve Pizza").font(.title)
-            Image("steve").resizable().scaledToFit()
-            Text("Your one stop shop for good steves and good pizza").font(.body)
+            ZStack {
+                Image("steve").resizable().scaledToFit()
+                Text("Steve Pizza").font(.title)
+            }
+            VStack(alignment: .center) {
+                Text("Your one stop shop for good steves and good pizza").font(.body)
+            }
+            List(0 ..< 5) { item in
+                HStack(alignment: .top, spacing: 15) {
+                    Image("1_100w")
+                    Text("The Steve Speciality")
+                    Spacer()
+                }
+            }
+            
+            Text("Your Order")
+            List(0 ..< 5) { item in
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("Your order item here")
+                        Spacer()
+                        Text("$0.00")
+                    }
+            }
             Spacer()
         }.padding()
     }
