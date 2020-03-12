@@ -13,6 +13,9 @@
 		438555F7241A7F2E0039E022 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438555F6241A7F2E0039E022 /* Assets.xcassets */; };
 		438555FA241A7F2E0039E022 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438555F9241A7F2E0039E022 /* Preview Assets.xcassets */; };
 		438555FD241A7F2E0039E022 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438555FB241A7F2E0039E022 /* LaunchScreen.storyboard */; };
+		43855609241A8C4A0039E022 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43855608241A8C4A0039E022 /* OrderListView.swift */; };
+		4385560B241A8CAE0039E022 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4385560A241A8CAE0039E022 /* MenuListView.swift */; };
+		4385560D241A8D0C0039E022 /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4385560C241A8D0C0039E022 /* ContentHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		438555F9241A7F2E0039E022 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		438555FC241A7F2E0039E022 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		438555FE241A7F2E0039E022 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43855608241A8C4A0039E022 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
+		4385560A241A8CAE0039E022 /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
+		4385560C241A8D0C0039E022 /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,10 @@
 		438555EF241A7F2B0039E022 /* swift-ui-pizza-app */ = {
 			isa = PBXGroup;
 			children = (
+				43855607241A8C190039E022 /* OrderView */,
+				43855606241A8C110039E022 /* MenuView */,
+				43855605241A8C0A0039E022 /* Model */,
+				43855604241A8C010039E022 /* HistoryView */,
 				438555F0241A7F2B0039E022 /* AppDelegate.swift */,
 				438555F2241A7F2B0039E022 /* SceneDelegate.swift */,
 				438555F4241A7F2B0039E022 /* ContentView.swift */,
@@ -63,6 +73,7 @@
 				438555FB241A7F2E0039E022 /* LaunchScreen.storyboard */,
 				438555FE241A7F2E0039E022 /* Info.plist */,
 				438555F8241A7F2E0039E022 /* Preview Content */,
+				4385560C241A8D0C0039E022 /* ContentHeaderView.swift */,
 			);
 			path = "swift-ui-pizza-app";
 			sourceTree = "<group>";
@@ -73,6 +84,36 @@
 				438555F9241A7F2E0039E022 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		43855604241A8C010039E022 /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HistoryView;
+			sourceTree = "<group>";
+		};
+		43855605241A8C0A0039E022 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43855606241A8C110039E022 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				4385560A241A8CAE0039E022 /* MenuListView.swift */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		43855607241A8C190039E022 /* OrderView */ = {
+			isa = PBXGroup;
+			children = (
+				43855608241A8C4A0039E022 /* OrderListView.swift */,
+			);
+			path = OrderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				438555F1241A7F2B0039E022 /* AppDelegate.swift in Sources */,
+				4385560B241A8CAE0039E022 /* MenuListView.swift in Sources */,
+				43855609241A8C4A0039E022 /* OrderListView.swift in Sources */,
+				4385560D241A8D0C0039E022 /* ContentHeaderView.swift in Sources */,
 				438555F3241A7F2B0039E022 /* SceneDelegate.swift in Sources */,
 				438555F5241A7F2B0039E022 /* ContentView.swift in Sources */,
 			);
