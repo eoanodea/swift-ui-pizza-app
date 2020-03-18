@@ -14,6 +14,7 @@ struct ConfirmView: View {
     @Binding var isPresented:Bool
     @Binding var quantity:Int
     @Binding var size:Size
+    @State var comments:String = ""
     
     ///extracts the menu item name based on `menuID`
     var name:String{
@@ -21,7 +22,7 @@ struct ConfirmView: View {
     }
     
     func addItem(){
-        orderModel.add(menuID: menuID, size: size, quantity: quantity)
+        orderModel.add(menuID: menuID, size: size, quantity: quantity, comments: comments)
         isPresented = false
     }
     
@@ -34,20 +35,54 @@ struct ConfirmView: View {
             Divider()
             SelectedImageView(image: "\(menuID)_250w")
                 .padding(10)
-            Divider()
+//                .onTapGesture(count: 2) {
+//                    self.isPresented = false
+//            }
+                .gesture(
+                    TapGesture(count: 2)
+                        .onEnded {
+                          self.isPresented = false
+                    }
+            )
             Text("Confirm your order of \(quantity) \(size.formatted()) \(name) pizza")
                 .font(.headline)
-            Spacer()
-            Button(action: addItem){
-                Text("Add")
-                    .font(.title)
-                .padding()
-                .background(Color("G4"))
-                .cornerRadius(10)
-            }.padding([.bottom])
+            Divider()
+            VStack {
+                SizePickerView(size: $size)
+                QuantityStepperView(quantity: $quantity)
+                
+//                Stepper(value: $quantity, in: 1...10) {
+//                    Text("Quantity: \(quantity)")
+//                    .bold()
+//                }
+//                .padding()
+//
+//                TextField("Add your comments", text:$comments)
+//                    .padding(30)
+//                    .background(Color("G4"))
+//                Spacer()
+//            }.padding(10)
+            }
+            HStack {
+                Button(action: {self.isPresented = false}){
+                    Text("Cancel")
+                        .font(.title)
+                    .padding()
+                    .background(Color("G4"))
+                    .cornerRadius(10)
+                }.padding([.bottom])
+                Spacer()
+                Button(action: addItem){
+                    Text("Add")
+                        .font(.title)
+                    .padding()
+                    .background(Color("G4"))
+                    .cornerRadius(10)
+                }.padding([.bottom])
+            }
         }
         .background(Color("G3"))
-        .foregroundColor(Color("IP"))
+        .foregroundColor(.black)
         .cornerRadius(20)
     }
 }

@@ -20,7 +20,10 @@ struct PageTitleView: View {
                 .padding(20)
                 .padding(.leading, 30)
         }.overlay(
-            Image(systemName: isDisplaying ?? false ? "chevron.up.square" : "chevron.down.square")
+            
+            Image(systemName: "chevron.up.square" )
+                .rotationEffect(isDisplaying ?? false ? Angle(degrees:0.0) : Angle(degrees: 180.0))
+                .animation(.easeInOut(duration: 0.2))
                 .font(.title)
                 .foregroundColor(isDisplaying != nil ? Color("G1") : .clear)
             .padding()
@@ -33,6 +36,6 @@ struct PageTitleView: View {
 
 struct PageTitleView_Previews: PreviewProvider {
     static var previews: some View {
-        PageTitleView(title: "Your one stop shop for good steves and good pizza")
+        PageTitleView(title: "Your one stop shop for good steves and good pizza", isDisplaying: true)
     }
 }

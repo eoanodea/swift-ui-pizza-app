@@ -9,7 +9,6 @@
 import SwiftUI
 ///A `View`for entering in an order. Takes basic information about the order from `menuItem`
 struct MenuDetailView: View {
-    let sizes: [Size] = [.small, .medium, .large]
     @EnvironmentObject var settings: UserPreferences
     @ObservedObject var orderModel: OrderModel
     @State var didOrder: Bool = false
@@ -35,23 +34,10 @@ struct MenuDetailView: View {
                 .layoutPriority(3)
                 
             Spacer()
-            Picker(selection: $settings.size, label: Text("Pizza Size")) {
-                ForEach(sizes, id: \.self) {size in
-                    Text(size.formatted()).tag(size)
-                }
-            }
-                .pickerStyle(SegmentedPickerStyle())
-//            HStack{
-//                Spacer()
-//                Text("Pizza size")
-//                Text(settings.size.formatted())
-//            }
-            .font(.headline)
-            Stepper(value: $quantity, in: 1...10) {
-                Text("Quantity: \(quantity)")
-                .bold()
-            }
-            .padding()
+            
+            SizePickerView(size: $settings.size)
+            QuantityStepperView(quantity: $quantity)
+            
             HStack{
                 Text("Order:  \(formattedPrice)")
                     .font(.headline)
@@ -59,7 +45,7 @@ struct MenuDetailView: View {
                 Text("Order total: \(orderModel.formattedTotal)" )
                     .font(.headline)
             }
-            .padding()
+
             HStack{
                 Spacer()
                 Button(action: addItem) {
@@ -86,5 +72,30 @@ struct MenuDetailView: View {
 struct MenuDetailView_Previews: PreviewProvider {
     static var previews: some View {
         MenuDetailView(orderModel: OrderModel(), menuItem: testMenuItem)
+    }
+}
+
+
+struct SizePickerView: View {
+    let sizes: [Size] = [.small, .medium, .large]
+    @Binding var size:Size
+    var body: some View {
+        Picker(selection: $size, label: Text("Pizza Size")) {
+           ForEach(sizes, id: \.self) {size in
+               Text(size.formatted()).tag(size)
+               }
+           }
+            .pickerStyle(SegmentedPickerStyle())
+            .font(.headline)
+    }
+}
+
+struct QuantityStepperView: View {
+    @Binding var quantity: Int
+    var body: some View {
+        Stepper(value: $quantity, in: 1...10) {
+            Text("Quantity: \(quantity)")
+            .bold()
+        }.padding()
     }
 }
