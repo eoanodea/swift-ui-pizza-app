@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ListHeaderView: View {
     @State var isSteveDisplayed: Bool = true
+    @ObservedObject var orderModel: OrderModel
     var text: String
     var body: some View {
         VStack {
@@ -20,6 +21,9 @@ struct ListHeaderView: View {
                 if self.isSteveDisplayed {
                  ContentHeaderView()
                 }
+                Text(orderModel.formattedTotal)
+                    .fontWeight(.heavy)
+                    .padding(.trailing)
             }
             Button(action: {self.isSteveDisplayed.toggle()}) {
             
@@ -31,6 +35,6 @@ struct ListHeaderView: View {
 
 struct ListHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ListHeaderView(text: "Menu")
+        ListHeaderView(orderModel: OrderModel(), text: "Menu")
     }
 }

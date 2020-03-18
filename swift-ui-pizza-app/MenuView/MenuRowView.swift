@@ -9,26 +9,27 @@
 import SwiftUI
 
 struct MenuRowView: View {
+    var menuItem:MenuItem = testMenuItem
     var body: some View {
-        HStack(alignment: .top, spacing: 15) {
-            Image("1_100w")
-                .cornerRadius(10)
-//                .border(Color("G4"), width: 4)
-                .shadow(color: Color("G4").opacity(0.5), radius: 5, x: 2.5, y: 2.5)
-            VStack(alignment: .leading) {
-                Text("The Steve Speciality")
-                    .font(.body)
-                    .fontWeight(.light)
-                RatingsView()
+        VStack(alignment: .leading) {
+            HStack(alignment: .top, spacing: 15) {
+                Image("\(menuItem.id)_100w")
+                    .cornerRadius(10)
+                    .shadow(color: Color("G4").opacity(0.5), radius: 5, x: 2.5, y: 2.5)
+                VStack(alignment: .leading) {
+                    Text(menuItem.name)
+                        .font(.body)
+                        .fontWeight(.light)
+                    RatingsView(count: menuItem.rating)
+                }
             }
-            
-            Spacer()
+            Text(menuItem.description).padding(10)
         }
     }
 }
 
 struct MenuRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuRowView()
+        MenuRowView(menuItem: MenuModel().menu[2])
     }
 }

@@ -9,13 +9,19 @@
 import SwiftUI
 
 struct HistoryRowItem: View {
+    var historyItem:HistoryItem
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
-            Image("1_100w")
-                .clipShape(Circle())
-                .shadow(color: Color("G4").opacity(0.5), radius: 5, x: 0.5, y: 0.5)
-            Text("The Janice Murray is stressed original")
+            SelectedImageView(image: "\(historyItem.id)_100w")
+            .padding(5)
+            .layoutPriority(1)
+//            Image("1_100w")
+//                .clipShape(Circle())
+//                .shadow(color: Color("G4").opacity(0.5), radius: 5, x: 0.5, y: 0.5)
+            Text(historyItem.name)
                 .font(.body)
+                .layoutPriority(2)
+                .padding(.trailing, 20)
             Spacer()
         }.overlay(Image(systemName: "chevron.right.square")
         .padding()
@@ -28,6 +34,6 @@ struct HistoryRowItem: View {
 
 struct HistoryRowItem_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryRowItem()
+        HistoryRowItem(historyItem: HistoryModel().historyItems[0])
     }
 }

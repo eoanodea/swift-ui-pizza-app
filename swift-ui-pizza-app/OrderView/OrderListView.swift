@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct OrderListView: View {
-    var prices = [12, 15, 10, 9, 2]
+    var orderModel: OrderModel
     var body: some View {
         VStack {
-            ListHeaderView(text: "Current Order")
-            List(0 ..< 5) { item in
-                OrderRowView(price: 20)
+            ListHeaderView(orderModel: orderModel, text: "Current Order")
+            List(orderModel.orders) { item in
+                OrderRowView(orderItem: item)
             }
         }
     }
@@ -22,6 +22,6 @@ struct OrderListView: View {
 
 struct OrderListView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderListView()
+        OrderListView(orderModel: OrderModel())
     }
 }

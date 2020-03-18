@@ -9,13 +9,20 @@
 import SwiftUI
 
 struct HistoryListView: View {
+    var historyList = HistoryModel()
+    @State var imageID: Int = 0
+    
     var body: some View {
         VStack {
-            ListHeaderView(text: "Order History")
-            SelectedImageView(image: "1_250w")
-                .padding(5)
-            List(0 ..< 5) { item in
-                HistoryRowItem()
+//            ListHeaderView(text: "Order History")
+            NavigationView{
+                List(historyList.historyItems) { item in
+                    NavigationLink(destination: HistoryDetailView(historyItem: item, imageID: self.$imageID)) {
+                        HistoryRowItem(historyItem: item)
+                        .listRowInsets(EdgeInsets())
+                    }
+                }
+            .navigationBarTitle("Menu")
             }
         }
     }

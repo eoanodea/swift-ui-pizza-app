@@ -9,14 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var orderModel: OrderModel
     var body: some View {
-        TabItemsView()
+        RootTabView(orderModel: orderModel)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-            ContentView()
+        ContentView(orderModel:OrderModel())
+        .environmentObject(UserPreferences())
     }
     
 }
