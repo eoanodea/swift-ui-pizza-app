@@ -10,12 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            ContentHeaderView()
-            MenuListView()
-            OrderListView()
-            Spacer()
-        }.padding()
+        TabItemsView()
     }
 }
 

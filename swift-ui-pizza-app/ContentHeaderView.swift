@@ -12,16 +12,19 @@ struct ContentHeaderView: View {
     var body: some View {
         VStack {
             ZStack {
-                Image("steve").resizable().scaledToFit()
-                Text("Steve Pizza").font(.title)
+                Image("steve")
+                    .resizable()
+                    .scaledToFit()
+                Text("Steve Pizza")
+                    .font(Font.custom("Avinir-Black", size: 20))
+                    .foregroundColor(.white )
             }
-            Text("Your one stop shop for good steves and good pizza")
         }
     }
 }
 
 struct ContentHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentHeaderView()
+        ContentHeaderView().environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
     }
 }

@@ -11,21 +11,9 @@ import SwiftUI
 struct MenuListView: View {
     var body: some View {
         VStack {
-            Text("Menu")
+            ListHeaderView(text: "Menu")
             List(0 ..< 5) { item in
-                HStack(alignment: .top, spacing: 15) {
-                    Image("1_100w")
-                    VStack {
-                        Text("The Steve Speciality")
-                        HStack {
-                            ForEach(0..<4) {item in
-                                Image("Pizza Slice")
-                            }
-                        }
-                    }
-                    
-                    Spacer()
-                }
+                MenuRowView()
             }
         }
     }
