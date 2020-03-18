@@ -20,7 +20,6 @@ struct PageTitleView: View {
                 .padding(20)
                 .padding(.leading, 30)
         }.overlay(
-            
             Image(systemName: "chevron.up.square" )
                 .rotationEffect(isDisplaying ?? false ? Angle(degrees:0.0) : Angle(degrees: 180.0))
                 .animation(.easeInOut(duration: 0.2))

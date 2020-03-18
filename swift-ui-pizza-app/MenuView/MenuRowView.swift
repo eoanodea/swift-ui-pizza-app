@@ -15,7 +15,7 @@ struct MenuRowView: View {
             HStack(alignment: .top, spacing: 15) {
                 Image("\(menuItem.id)_100w")
                     .cornerRadius(10)
-                    .shadow(color: Color("G4").opacity(0.5), radius: 5, x: 2.5, y: 2.5)
+                    .shadow(color: Color("G4").opacity(0.5), radius: 5, x: 0.5, y: 0.5)
                 VStack(alignment: .leading) {
                     Text(menuItem.name)
                         .font(.body)

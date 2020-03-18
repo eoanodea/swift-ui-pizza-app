@@ -12,12 +12,9 @@ struct HistoryRowItem: View {
     var historyItem:HistoryItem
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
-            SelectedImageView(image: "\(historyItem.id)_100w")
-            .padding(5)
-            .layoutPriority(1)
-//            Image("1_100w")
-//                .clipShape(Circle())
-//                .shadow(color: Color("G4").opacity(0.5), radius: 5, x: 0.5, y: 0.5)
+            Image("\(historyItem.id)_100w")
+                .clipShape(Circle())
+                .shadow(color: Color("G4").opacity(0.5), radius: 5, x: 0.5, y: 0.5)
             Text(historyItem.name)
                 .font(.body)
                 .layoutPriority(2)
